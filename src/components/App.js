@@ -3,8 +3,8 @@ import './App.css';
 import Post from './Post';
 //import { render } from '@testing-library/react';
 
-const API = 'https://jsonplaceholder.typicode.com/posts/1';   //jedne post
-//const API = 'https://jsonplaceholder.typicode.com/posts';   //wszystkie
+//const API = 'https://jsonplaceholder.typicode.com/posts/1';   //jeden post
+const API = 'https://jsonplaceholder.typicode.com/posts';   //wszystkie
 //const API = 'https://jsonplaceholder.typicode.com/posts?userId=1';
 
 class App extends Component {
@@ -20,18 +20,18 @@ class App extends Component {
     .then(json => {  
       
       //dla jednego postu:
-      this.setState( prevState => ({
-        //posts: prevState.posts.push(json),  //Dla czego takie dodawanie do tablicy nie działa?
-        posts: [...prevState.posts, json],    //to działa
-        //posts: prevState.posts.concat(arr), //to też działa
-        isLoaded: true
-      }))
+      // this.setState( prevState => ({
+      //   //posts: prevState.posts.push(json),  //Dla czego takie dodawanie do tablicy nie działa?
+      //   posts: [...prevState.posts, json],    //to działa
+      //   //posts: prevState.posts.concat(arr), //to też działa
+      //   isLoaded: true
+      // }))
 
       //dla kilku postów:
-        // this.setState( {
-        //   posts: json,
-        //   isLoaded: true
-        // })
+        this.setState( {
+          posts: json,
+          isLoaded: true
+        })
         
     })
     .catch(error => console.error("Nie udało sie wczytać API"))
