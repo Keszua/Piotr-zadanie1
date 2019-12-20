@@ -12,4 +12,15 @@ const Post = props => (
     </li>
 )
 
-export default Post;
+
+const Posts = props => (
+
+
+    <ul className="List">
+        {props.posts.map(el => (
+            <Post key={el.id} userId={el.userId} title={el.title} body={el.body}/>
+        ))}
+    </ul>
+)
+
+export default Posts;
