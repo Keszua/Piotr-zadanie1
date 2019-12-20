@@ -19,7 +19,7 @@ class App extends Component {
     isLoaded: false,  //pierwsze załadowanie postów
     quantity: 0,      //ilość pobranych wiadomości
     users: [],        //tablica z ilością "User Id"
-    filtr: [0],       //aktualne filtrowanie wiadomości
+    filtr: [0],       //aktualne filtrowanie wiadomości względem użytkowników
   }
   
   
@@ -57,6 +57,7 @@ class App extends Component {
   }
 
   getNew10Post= () => {
+    if(othersPos) return;
     othersPos = 9;
     this.getNewPost();
   }
@@ -66,9 +67,9 @@ class App extends Component {
   // }
 
   handleUserFilter = (filtr) => {
-    console.log(filtr);
+    //console.log(filtr);
     if(filtr.indexOf(0) > -1) {
-      console.log("Jest 0");
+      //console.log("Jest 0");
       this.setState( prevState => ({
         postsWiew : prevState.posts,
       }))

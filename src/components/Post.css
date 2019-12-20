@@ -6,6 +6,6 @@ li {
     border-top: 2px solid gray;
 }
 
-.post h3{
-    text-align: center;
+.post {
+    text-align: left;
 }

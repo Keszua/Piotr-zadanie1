@@ -1,20 +1,50 @@
 import React from 'react';
 import "./Post.css";
 
-const Post = props => (
-    <li className="post">
-        <div>
-        <h3>{props.title}</h3>
-        User Id: {props.userId}  
-        <br/>  
-        {props.body} 
-        </div>
-    </li>
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+
+
+const PostBody = props => (
+    <>
+        <br/> 
+        {/* User Id: {props.userId}   */}
+        <br/>
+        {props.body}
+    </>
 )
 
 
-const Posts = props => (
+class Post extends React.Component {
 
+    state = {
+        show: false,
+    }
+ 
+    handleToogleShow = () => {
+        console.log("Przycisk")
+        this.setState( prevState => ({
+             show: !prevState.show,
+        }))
+    }
+
+    render() {
+
+        return(
+            <li className="post">
+                <div>
+                    <button onClick={this.handleToogleShow} > {this.state.show ? <ExpandLess /> : <ExpandMore />} 
+                    </button>
+                    <strong>{this.props.title}</strong> User Id: {this.props.userId}  
+                    {this.state.show ? <PostBody userId={this.props.userId} body={this.props.body}  /> : null }
+                </div>
+            </li>
+        )
+    }
+}
+
+
+const Posts = props => (
 
     <ul className="List">
         {props.posts.map(el => (

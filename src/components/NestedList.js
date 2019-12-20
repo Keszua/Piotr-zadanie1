@@ -127,26 +127,26 @@ export default function NestedList(props) {
                 const labelId = `checkbox-list-label-${value}`;
 
                 return (
-                <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
-                    {/* <ListItemIcon> */}
-                        <PermIdentitySharpIcon />
-                    {/* </ListItemIcon> */}
-                    <ListItemIcon>
-                    <Checkbox
-                        edge="start"
-                        checked={checked.indexOf(value) !== -1}
-                        tabIndex={-1}
-                        disableRipple
-                        inputProps={{ 'aria-labelledby': labelId }}
-                    />
-                    </ListItemIcon>
-                    <ListItemText id={labelId} primary={`Użytkownik ${value}`} />
-                    {/* <ListItemSecondaryAction>
-                    <IconButton edge="end" aria-label="comments">
-                        <CommentIcon />
-                    </IconButton>
-                    </ListItemSecondaryAction> */}
-                </ListItem>
+                  <ListItem key={value} role={undefined} dense button onClick={handleToggle(value)}>
+                      {/* <ListItemIcon> */}
+                          <PermIdentitySharpIcon />
+                      {/* </ListItemIcon> */}
+                      <ListItemIcon>
+                      <Checkbox
+                          edge="start"
+                          checked={checked.indexOf(value) !== -1}
+                          tabIndex={-1}
+                          disableRipple
+                          inputProps={{ 'aria-labelledby': labelId }}
+                      />
+                      </ListItemIcon>
+                      <ListItemText id={labelId} primary={`Użytkownik ${value}`} />
+                      {/* <ListItemSecondaryAction>
+                      <IconButton edge="end" aria-label="comments">
+                          <CommentIcon />
+                      </IconButton>
+                      </ListItemSecondaryAction> */}
+                  </ListItem>
                 );
             })}
             </List>
